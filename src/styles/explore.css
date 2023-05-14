@@ -1,0 +1,14 @@
+@media (max-width: 600px) {
+  .text {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .card {
+    background-color: rgb(0, 119, 255);
+    color: #f8f8fa;
+    padding: 1rem;
+    border-radius: 0.6rem;
+    font-family: "Saira Semi Condensed", sans-serif;
+    font-size: 1rem;
+  }
+}

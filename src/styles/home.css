@@ -1,0 +1,101 @@
+.box {
+  margin: 4.5rem auto;
+  height: 100%;
+  padding: 1.5rem 0;
+}
+
+.report__card {
+  background: rgb(236, 166, 73);
+  color: #084552;
+  padding: 1rem 1rem 0.5rem;
+  margin: 0.4rem auto;
+  border-radius: 0.6rem;
+  width: 500px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.flex_ {
+  justify-content: space-between;
+  margin-bottom: 0.7rem;
+}
+
+.flex_ button {
+  border: none;
+  outline: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  font-family: "Saira Semi Condensed", sans-serif;
+}
+
+.report__card p,
+.report__card div {
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+.incident__type {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #f8f8fa;
+  background: #084552;
+  width: max-content;
+  padding: 0.2rem 1rem;
+  border-radius: 2rem;
+}
+
+.incident__location {
+  font-weight: 700;
+  font-size: 0.7rem;
+  white-space: pre-line;
+}
+
+.report__card .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.report__card .bottom span {
+  background: #f8f8fa;
+  padding: 0.1rem 0.6rem;
+  width: max-content;
+  border-radius: 1rem;
+  font-weight: 600;
+}
+
+.back__icon {
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: #084552;
+  color: #f8f8fa;
+  padding: 0.5rem;
+  border-radius: 100%;
+  border: 1px solid transparent;
+  transition: all 0.5s;
+}
+
+.back__icon:hover {
+  background: transparent;
+  color: #084552;
+  border-color: #084552;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 450px;
+}
+
+@media (max-width: 600px) {
+  .report__card {
+    width: 100%;
+  }
+}

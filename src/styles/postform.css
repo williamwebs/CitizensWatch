@@ -1,0 +1,9 @@
+.post__form__container {
+  margin-top: 4.8rem;
+  padding-top: 1.5rem;
+}
+
+textarea {
+  height: 7rem;
+  resize: none;
+}

@@ -1,0 +1,32 @@
+create a collection for all the users
+    create a sub collection in the users collection {post} to hold each users post
+
+create a collection for all the posts
+
+in the post page (showing all posts made by a certain individual), fetch / get each 
+post made made by the user by the userID
+
+
+<ThreeCircles
+  height="100"
+  width="100"
+  color="#4fa94d"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true}
+  ariaLabel="three-circles-rotating"
+  outerCircleColor=""
+  innerCircleColor=""
+  middleCircleColor=""
+/>
+
+<Rings
+  height="80"
+  width="80"
+  color="#4fa94d"
+  radius="6"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true}
+  ariaLabel="rings-loading"
+/>

@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
 import { BottomNav, Nav } from "../config";
 import "../styles/postform.css";
 import {
@@ -12,9 +11,28 @@ import {
 import { db } from "../config/firebase";
 import { AuthContext } from "../contexts/AuthContext";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const PostForm = () => {
   const user = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
+
+  const [incident, setIncident] = useState("");
+  const [location, setLocation] = useState("");
+  const [details, setDetails] = useState("");
+
+  const notify = () =>
+    toast("🦄 Report submitted!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,23 +40,10 @@ const PostForm = () => {
     setLoading(true);
 
     const incident = e.target[0].value;
-    const location = e.target[1].value;
-    const details = e.target[2].value;
 
     console.log(incident, location, details);
 
     try {
-      // creates a subCollection Post to hold each users reports / post
-      // const docRef = await addDoc(collection(db, "users", user.uid, "posts"), {
-      //   incident,
-      //   location,
-      //   details,
-      //   createdAt: serverTimestamp(),
-      // });
-      // console.log(docRef);
-      // console.log("New post created with ID:", docRef.id);
-      // Add a new document with a generated id.
-
       const docRef = await addDoc(collection(db, "allPosts"), {
         userID: user.uid,
         incident,
@@ -49,16 +54,16 @@ const PostForm = () => {
       console.log(docRef);
       console.log("New post created with ID:", docRef.id);
 
-      // add each post to the allPosts collection
-      // await setDoc(doc(db, "AllPosts", user.uid), {
-      //   incident,
-      //   location,
-      //   details,
-      // });
-      // console.log("success db");
+      notify();
+
+      setDetails("");
+      setLocation("");
+
       setLoading(false);
     } catch (error) {
       console.log(error.message);
+      setDetails("");
+      setLocation("");
       setLoading(false);
     }
   };
@@ -78,14 +83,37 @@ const PostForm = () => {
               <option value="Accident">Accident</option>
             </select>
             <label htmlFor="location">Location of Incident</label>
-            <input type="text" name="location" id="location" />
+            <input
+              type="text"
+              name="location"
+              id="location"
+              onChange={(e) => setLocation(e.target.value)}
+              value={location}
+            />
             <label htmlFor="incident_details">Details of the Incident</label>
-            <textarea name="incident_details" id="incident_details"></textarea>
+            <textarea
+              name="incident_details"
+              id="incident_details"
+              onChange={(e) => setDetails(e.target.value)}
+              value={details}
+            ></textarea>
             <button type="submit" className="cta_">
               {loading ? "Reporting..." : "Report Incident"}
             </button>
           </form>
         </div>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </div>
       <BottomNav />
     </main>

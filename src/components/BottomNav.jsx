@@ -1,8 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { BsFillPersonFill, BsPlus, BsAirplaneFill } from "react-icons/bs";
 import "./bottomNav.css";
-import { useReducer } from "react";
 
 const BottomNav = () => {
   return (
